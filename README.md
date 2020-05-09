@@ -89,6 +89,8 @@ function useLocalStorage(key, initialValue) {
   return [storedValue, setValue];
 }
 ```
+Example Usage;
+`const [activeTab, setActiveTab] = useLocalStorage('activeTab', defaultActiveTab);`
 ## 3. UsePrevious Value of something
 ```
 function usePrevious(value, deps = [value]) {
