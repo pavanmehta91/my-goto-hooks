@@ -153,6 +153,20 @@ function useDebouncedCallback(callback: (...args) => void, wait: number) {
   };
 }
 ```
+Example Usage
+```
+  const onSearch = useDebouncedCallback(async search_string => {
+    if (search_string && search_string.length > 1) {
+      setFetching(true);
+      const [error, response] = await asyncWrap(searchUsers(search_string));
+      setFetching(false);
+      if (!error) {
+        setUsers(response.data.data);
+      }
+    }
+  }, 300);
+```
+
 ## 5. useKeyDown With Callback Handler
 ```
 export function useKeydown(key: string, handler: Function) {
@@ -166,6 +180,7 @@ export function useKeydown(key: string, handler: Function) {
 }
 
 ```
+
 ## 6. UseKeyDownEnhanced with Callback Handler
 ```
   export function useKeydown(key: string, handler: Function, {   altKey = false, ctrlKey = false, shiftKey = false } ) {
