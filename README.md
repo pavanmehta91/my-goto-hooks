@@ -109,7 +109,10 @@ function usePrevious(value, deps = [value]) {
 
   return ref.current;
 }
+```
 
+## 4. UseDebounce Callback
+```
 function useDebouncedCallback(callback: (...args) => void, wait: number) {
   // track args & timeout handle between calls
   const argsRef = useRef();
