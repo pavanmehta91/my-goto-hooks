@@ -153,4 +153,33 @@ function useDebouncedCallback(callback: (...args) => void, wait: number) {
   };
 }
 ```
+## 5. useKeyDown With Callback Handler
+```
+export function useKeydown(key: string, handler: Function) {
+  React.useEffect(() => {
+    const cb = (e: KeyboardEvent) => e.key === key && handler(e)
+    document.body.addEventListener("keydown", cb)
+    return () => {
+      document.body.removeEventListener("keydown", cb)
+    }
+  }, [key, handler])
+}
+
+```
+## 6. UseKeyDownEnhanced with Callback Handler
+```
+  export function useKeydown(key: string, handler: Function, {   altKey = false, ctrlKey = false, shiftKey = false } ) {
+  React.useEffect(() => {
+    const cb = (e: KeyboardEvent) => e.key === key  &&
+        e.ctrlKey === ctrlKey &&
+        e.altKey === altKey &&
+        e.shiftKey === shiftKey && handler(e)
+    document.body.addEventListener("keydown", cb)
+    return () => {
+      document.body.removeEventListener("keydown", cb)
+    }
+  }, [key, handler])
+}
+
+```
 
