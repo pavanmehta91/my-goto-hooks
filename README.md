@@ -89,8 +89,8 @@ function useLocalStorage(key, initialValue) {
   return [storedValue, setValue];
 }
 ```
-Example Usage;
-`const [activeTab, setActiveTab] = useLocalStorage('activeTab', defaultActiveTab);`
+Example Usage
+```const [activeTab, setActiveTab] = useLocalStorage('activeTab', defaultActiveTab);```
 ## 3. UsePrevious Value of something
 ```
 function usePrevious(value, deps = [value]) {
@@ -111,6 +111,13 @@ function usePrevious(value, deps = [value]) {
 
   return ref.current;
 }
+```
+Example usage
+```
+  const previousField = usePrevious(current_field);
+  //mimicking useInitial.. preseves values changes in the current field
+  const initialContent = usePrevious(current_field.content, [current_field]);
+//Here it is used for an object or a property inside an object
 ```
 
 ## 4. UseDebounce Callback
