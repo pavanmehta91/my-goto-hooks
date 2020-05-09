@@ -1,6 +1,6 @@
 # my-goto-hooks
 custom hooks, self-built, copied or inspired But useful nonetheless
-## KeyPress Hook which returns a true flag
+## 1. KeyPress Hook which returns a true flag
 ```
 function useKeyPress(targetKey: string) {
   // State for keeping track of whether key is pressed
@@ -43,4 +43,12 @@ function useKeyPress(targetKey: string) {
 
   return keyPressed;
 }
+```
+Example usage
+
+```
+  const isEspacePressed = useKeyPress("Escape");
+  useEffect(() => {
+    if (isEspacePressed) doSomething();
+  }, [isEspacePressed]);
 ```
